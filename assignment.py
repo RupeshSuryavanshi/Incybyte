@@ -19,15 +19,15 @@ def CREATE():
 def CHOICE():
     global d,n,id,od,ld,vid,dn,st,cn,pc,db,fg,ch
     ch=input("You Want To Add Data In Table Manually(Y/N)")
-    if ch == 'Y' or ch=='Yes' or ch=='y':
+    if ch=='Yes' or ch == 'Y' or ch=='y':
         print(n:=input("Enter Name = "),id:=input("Enter ID = "),od:=input("Enter O_DATE = "),ld:=input("Enter L_DATE = "),vid:=input("Enter VID = "),\
               dn:=input("Enter DNAME = "),st:=input("Enter State = "),cn:=input("Enter Country = "),pc:=input("Enter PCODE = "),\
               db:=input("Enter DOB = "),fg:=input("Enter Flag = "))
         d=[(n,id,od,ld,vid,dn,st,cn,pc,db,fg)]
      
         Data = [('RAHUL', '123457', 20200414, 20200613, 'MVD', 'JADHAV', 'MH', 'IND', 123, 19971213, 'A'),
-                ('John', '123458', 20201014, 20201015, 'MVD', '', 'TN', 'CHN', 356, 19971213, 'A'),
-                ('Mathew', '123459', 20201018, 20201017, 'MVD', '', 'WAS', 'PAK', 456, 19971213, 'A')
+                ('John', '123458', 20201014, 20201015, 'MVD', '', 'unio', 'CHN', 356, 19971213, 'A'),
+                ('Mathew', '123459', 20201018, 20201017, 'MVD', '', 'sant', 'PAK', 456, 19971213, 'A')
                 (n, id, od, ld, vid, dn, st, cn, pc, db, fg)]
         connection.executemany("""INSERT OR IGNORE INTO CUSTOMER (NAME,ID,OPEN_DATE,LAST_CONSULT,VACCINATION_TYPE,DOCTOR_NAME,STATE,COUNTRY,POST_CODE,DOB,ACTIVE_CUSTOMER) \
               VALUES (:1,:2,:3,:4,:5,:6,:7,:8,:9,:10,:11 )""", Data)
@@ -35,8 +35,8 @@ def CHOICE():
         connection.commit()
     else:
         Data = [('RAHUL', '123457', 20200414, 20200613, 'MVD', 'JADHAV', 'MH', 'IND', 123, 19971213, 'A'),
-                ('John', '123458', 20201014, 20201015, 'MVD', '', 'TN', 'CHN', 356, 19971213, 'A'),
-                ('Mathew', '123459', 20201018, 20201017, 'MVD', '', 'WAS', 'PAK', 456, 19971213, 'A')]
+                ('John', '123458', 20201014, 20201015, 'MVD', '', 'uni', 'CHN', 356, 19971213, 'A'),
+                ('Mathew', '123459', 20201018, 20201017, 'MVD', '', 'sant', 'PAK', 456, 19971213, 'A')]
         connection.executemany("""INSERT OR IGNORE INTO CUSTOMER (NAME,ID,OPEN_DATE,LAST_CONSULT,VACCINATION_TYPE,DOCTOR_NAME,STATE,COUNTRY,POST_CODE,DOB,ACTIVE_CUSTOMER) \
               VALUES (:1,:2,:3,:4,:5,:6,:7,:8,:9,:10,:11 )""", Data)
       
